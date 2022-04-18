@@ -9,7 +9,6 @@ sequelize.sync({force:false}).then(()=>{
 })
 
 api.get('/boliches', async (req: Request, res: Response)=>{
-    const boliches = await models.boliches.findAll();
 /*     mysql.query('SELECT username, direccion, biografia FROM boliches', async (error: any, results: any, fields: any)=>{
         if (error) throw error;
         res.json(await results);
