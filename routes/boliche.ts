@@ -2,11 +2,11 @@ import { Request, Response } from "express";
 import { MysqlError, FieldInfo } from 'mysql';
 const mysql = require("../mysql");
 const api = require('express').Router();
-const sequelize = require('../sequelize/config');
+// const sequelize = require('../sequelize/config');
 
-sequelize.sync({force:false}).then(()=>{
+/* sequelize.sync({force:false}).then(()=>{
     console.log('Conectado')
-})
+}) */
 
 api.get('/boliches', async (req: Request, res: Response)=>{
 /*     mysql.query('SELECT username, direccion, biografia FROM boliches', async (error: any, results: any, fields: any)=>{
