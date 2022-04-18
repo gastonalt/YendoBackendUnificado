@@ -33,5 +33,5 @@ Boliche.init({
     }
 }, {
     sequelize, // We need to pass the connection instance
-    modelName: 'Boliche' // We need to choose the model name
+    modelName: 'boliches' // We need to choose the model name
 });

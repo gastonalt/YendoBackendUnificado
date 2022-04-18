@@ -76,3 +76,5 @@ api.post('/reservar', (req: Request, res: Response)=>{
         if (error) throw error;
         res.json('Reservado correctamente');
 })});
+
+module.exports = api;

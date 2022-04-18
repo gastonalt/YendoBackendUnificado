@@ -5,13 +5,13 @@ const bcrypt = require('bcrypt');
 const api = require('express').Router();
 const sequelize = require ("../sequelize/config");
 
-sequelize.authenticate()
+/* sequelize.authenticate()
     .then(() => {
         console.log('Conectado')
     })
     .catch((err:any) => {
         console.log('No se conecto')
-    })
+    }) */
 
 api.post('/getUserInfo', (req: Request, res: Response)=>{
     mysql.query('SELECT id, username, direccion, biografia FROM boliches WHERE password = ?', [req.body.token], async (error: MysqlError, results: any, fields: FieldInfo)=>{
@@ -71,3 +71,5 @@ api.post('/login', async (req: Request, res: Response) => {
         }
     });
 })
+
+module.exports = api;

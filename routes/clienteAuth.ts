@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 
 // CONFIG //
 
-const app = require('express')();
+const app = require('express').Router();
 const bodyParser = require('body-parser');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server,{
@@ -50,3 +50,5 @@ io.on('connection', (socket:any) => {
 server.listen(PORT,()=>{
 	console.log(`Servidor con sockets corriendo en el puerto ${PORT}`)
 });
+
+module.exports = app;
