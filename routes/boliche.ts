@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { MysqlError, FieldInfo } from 'mysql';
 const mysql = require("../mysql");
 const api = require('express').Router();
+import {Boliche} from "../models-frontend-tomove/Boliche"
 // const sequelize = require('../sequelize/config');
 
 /* sequelize.sync({force:false}).then(()=>{
@@ -9,10 +10,10 @@ const api = require('express').Router();
 }) */
 
 api.get('/boliches', async (req: Request, res: Response)=>{
-/*     mysql.query('SELECT username, direccion, biografia FROM boliches', async (error: any, results: any, fields: any)=>{
+    mysql.query('SELECT username,direccion,biografia FROM boliches', async (error: any, results: any, fields: any)=>{
         if (error) throw error;
         res.json(await results);
-    }) */
+    })
 })
 
 api.get('/boliches_con_reservas', async (req: Request, res: Response)=>{
