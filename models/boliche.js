@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         static associate(models) {
             // define association here
             Boliche.hasMany(models.Evento);
-            Boliche.hasMany(models.Admin)
+            Boliche.hasMany(models.Admin);
         }
     }
     Boliche.init({

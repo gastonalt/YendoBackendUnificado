@@ -1,7 +1,5 @@
 'use strict';
-const {
-    Model
-} = require('sequelize');
+const {Model} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
     class Evento extends Model {
         /**
@@ -11,8 +9,8 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
-            Evento.hasMany(models.Cliente)
-            Evento.hasOne(models.Boliche);
+            Evento.belongsToMany(models.Cliente, { through: 'Eventos_Clientes'});
+            Evento.belongsTo(models.Boliche);
         }
     }
     Evento.init({
@@ -36,13 +34,6 @@ module.exports = (sequelize, DataTypes) => {
         descripcion: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        bolicheId: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: Boliche,
-                key: 'id'
-            }
         },
         cantidadTotal: {
             type: DataTypes.INTEGER,
