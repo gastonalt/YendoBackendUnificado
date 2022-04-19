@@ -3,7 +3,7 @@ const {
     Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-    class BolicheUsuarioBoliche extends Model {
+    class BolicheEvento extends Model {
         /**
          * Helper method for defining associations.
          * This method is not a part of Sequelize lifecycle.
@@ -13,13 +13,15 @@ module.exports = (sequelize, DataTypes) => {
             // define association here
         }
     }
-    BolicheUsuarioBoliche.init({}, {
+    BolicheEvento.init({}, {
         sequelize,
-        modelName: 'BolicheUsuarioBoliche',
+        modelName: 'BolicheEvento',
     });
 
-    Boliche.hasMany(Persona, { through: 'BolicheUsuarioBoliche' });
-    Persona.belongsTo(Boliche, { through: 'BolicheUsuarioBoliche' });
 
-    return BolicheUsuarioBoliche;
+    Boliche.hasMany(Evento);
+    Evento.belongsTo(Boliche);
+
+    return BolicheEvento;
+
 };
