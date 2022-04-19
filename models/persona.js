@@ -39,18 +39,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        fechaNacimiento: {
-            type: DataTypes.DATEONLY,
-        },
-        tipoDni: {
-            type: DataTypes.STRING,
-        },
-        numeroDni: {
-            type: DataTypes.INTEGER,
-        },
-        cuit: {
-            type: DataTypes.INTEGER,
-        },
     }, {
         sequelize,
         modelName: 'Persona',

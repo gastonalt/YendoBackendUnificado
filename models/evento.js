@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
          */
         static associate(models) {
             // define association here
+            Evento.hasMany(models.Cliente)
+            Evento.hasOne(models.Boliche);
         }
     }
     Evento.init({
@@ -54,8 +56,6 @@ module.exports = (sequelize, DataTypes) => {
         sequelize,
         modelName: 'Evento',
     });
-
-    Evento.hasOne(Boliche);
 
     return Evento;
 };
