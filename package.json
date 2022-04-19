@@ -35,5 +35,8 @@
         "boliche"
     ],
     "author": "Edgar Gastón Altamirano",
-    "license": "ISC"
+    "license": "ISC",
+    "devDependencies": {
+        "sequelize-cli": "^6.4.1"
+    }
 }
