@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
         }
     }
     Persona.init({
-        idBoliche: {
+        idPersona: {
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true

@@ -1,8 +1,10 @@
+// @ts-ignore
 import express, { Request, Response } from 'express';
 const bolicheAuth = require('./routes/boliche');
 const clienteAuth = require('./routes/clienteAuth');
 const boliche = require('./routes/boliche');
 const reserva = require('./routes/reserva');
+const auth = require('./routes/auth');
 var cors = require('cors');
 const app = express();
 const PORT = 3000;
@@ -14,6 +16,7 @@ app.use('/api/boliche/auth', bolicheAuth);
 app.use('/api/cliente/auth', clienteAuth);
 app.use('/api/boliche', boliche);
 app.use('/api/reserva', reserva);
+app.use('/api/auth', auth);
 
 sequelize.sync({force: false})
 
@@ -22,5 +25,5 @@ app.get('/',(req: Request, res: Response)=>{
 });
 
 app.listen(PORT, () => {
-    console.log(`Aplicación escuchando en el puerto ${PORT || 5000}`);
+    console.log(`Aplicación escuchando en el puerto ${process.env.PORT || PORT}`);
 })
