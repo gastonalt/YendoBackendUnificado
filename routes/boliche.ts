@@ -3,9 +3,10 @@ import { MysqlError, FieldInfo } from 'mysql';
 const mysql = require("../mysql");
 const api = require('express').Router();
 const Boliche = require("../models").Boliche;
+const verify = require("./verifyToken");
 // const sequelize = require('../sequelize/config');
 
-api.get('/boliches', async (req: Request, res: Response)=>{
+api.get('/boliches', verify, async (req: Request, res: Response)=>{
     const boliches = Boliche.findAll();
     res.json(await boliches);
     /* mysql.query('SELECT username,direccion,biografia FROM boliches', async (error: any, results: any, fields: any)=>{
