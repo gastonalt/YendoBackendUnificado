@@ -20,7 +20,7 @@ router.post('/register', async (req: Request, res: Response)=>{
         }
     })
 
-    if(PersonaExiste) return res.status(400).send("El mail y/o nombre de usuario ya existe.");
+    if(await PersonaExiste !== null) return res.status(400).send("El mail y/o nombre de usuario ya existe.");
 
     // Hash la contraseña
     const salt = await bcript.genSalt(10);
@@ -32,11 +32,15 @@ router.post('/register', async (req: Request, res: Response)=>{
         apellidos: req.body.apellidos,
         email: req.body.email,
         password: hashPassword,
-        Cliente: req.body.cliente
-    },{
+    },
+/*     {
         include: Cliente
-    })
+    } */
+    )
     //
+
+    res.send('Exito');
+
 });
 
 //LOGIN
@@ -59,8 +63,6 @@ router.post('/login', async (req: Request, res: Response)=>{
     // Crear y asignar un token
     const token = jwt.sign({id: PersonaExiste.id},process.env.TOKEN_SECRET);
     res.header('auth-token', token).send(token);
-
-    res.send('Logueado.');
 
 })
 

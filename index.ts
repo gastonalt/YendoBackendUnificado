@@ -9,6 +9,8 @@ var cors = require('cors');
 const app = express();
 const PORT = 3000;
 const sequelize = require("./models/index").sequelize;
+const dotenv = require('dotenv');
+dotenv.config();
 
 app.use(express.json());
 app.use(cors());
