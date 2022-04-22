@@ -4,7 +4,6 @@ const mysql = require("../mysql");
 const api = require('express').Router();
 const Boliche = require("../models").Boliche;
 const verify = require("./verifyToken");
-// const sequelize = require('../sequelize/config');
 
 api.get('/boliches', verify, async (req: Request, res: Response)=>{
     const boliches = Boliche.findAll();
