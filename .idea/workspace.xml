@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5de76f5d-b8c1-40e1-8cfe-c5b392261e06" name="Changes" comment="Agregué &quot;olvide mi contraseña&quot; y &quot;recuperar mi contraseña&quot;." />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="282gPByeImgl8tSBEXOs7zRJK2Q" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ealtamirano/Escritorio/YendoAppBackend&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/ealtamirano/Escritorio/YendoAppBackend/node_modules/typescript/lib&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/borrar" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5de76f5d-b8c1-40e1-8cfe-c5b392261e06" name="Changes" comment="" />
+      <created>1650420067410</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1650420067410</updated>
+      <workItem from="1650420068895" duration="3390000" />
+      <workItem from="1650457074577" duration="12000" />
+      <workItem from="1650507039913" duration="4051000" />
+      <workItem from="1650767001171" duration="3949000" />
+    </task>
+    <task id="LOCAL-00001" summary="Abri el proyecto en intellij, espero que no se enoje mucho git. Moví lo que tendré que borrar a una carpeta, luego tendré que organizar un poco eso y ver que borrar y que no. Autenticación de los clientes a un 50%.">
+      <created>1650423449675</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1650423449675</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Autenticación de los clientes al 100%. Mañana lo pruebo con postman =D">
+      <created>1650510311973</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650510311973</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Incluyo .env y actualizo el gitignore. =)">
+      <created>1650510414726</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650510414726</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Agregué &quot;olvide mi contraseña&quot; y &quot;recuperar mi contraseña&quot;.">
+      <created>1650852783157</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650852783157</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName=".env" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Abri el proyecto en intellij, espero que no se enoje mucho git. Moví lo que tendré que borrar a una carpeta, luego tendré que organizar un poco eso y ver que borrar y que no. Autenticación de los clientes a un 50%." />
+    <MESSAGE value="Autenticación de los clientes al 100%. Mañana lo pruebo con postman =D" />
+    <MESSAGE value="Incluyo .env y actualizo el gitignore. =)" />
+    <MESSAGE value="Agregué &quot;olvide mi contraseña&quot; y &quot;recuperar mi contraseña&quot;." />
+    <option name="LAST_COMMIT_MESSAGE" value="Agregué &quot;olvide mi contraseña&quot; y &quot;recuperar mi contraseña&quot;." />
+  </component>
+</project>
