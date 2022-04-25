@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true
         },
+        resetToken:{
+            type: DataTypes.STRING,
+            allowNull: true,
+        },
         username: {
             type: DataTypes.STRING,
             allowNull: false
