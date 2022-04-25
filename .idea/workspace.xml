@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5de76f5d-b8c1-40e1-8cfe-c5b392261e06" name="Changes" comment="Agregué &quot;olvide mi contraseña&quot; y &quot;recuperar mi contraseña&quot;." />
+    <list default="true" id="5de76f5d-b8c1-40e1-8cfe-c5b392261e06" name="Changes" comment="Agregué &quot;olvide mi contraseña&quot; y &quot;recuperar mi contraseña&quot;.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/persona.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/persona.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/routes/auth.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,7 +50,7 @@
       <workItem from="1650420068895" duration="3390000" />
       <workItem from="1650457074577" duration="12000" />
       <workItem from="1650507039913" duration="4051000" />
-      <workItem from="1650767001171" duration="3949000" />
+      <workItem from="1650767001171" duration="4049000" />
     </task>
     <task id="LOCAL-00001" summary="Abri el proyecto en intellij, espero que no se enoje mucho git. Moví lo que tendré que borrar a una carpeta, luego tendré que organizar un poco eso y ver que borrar y que no. Autenticación de los clientes a un 50%.">
       <created>1650423449675</created>
@@ -76,7 +80,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650852783157</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Agregué &quot;olvide mi contraseña&quot; y &quot;recuperar mi contraseña&quot;.">
+      <created>1650852843204</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1650852843204</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

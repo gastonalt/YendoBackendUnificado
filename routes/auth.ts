@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 const router = require('express').Router();
 import { Request, Response } from 'express';
 const Persona = require("../models").Persona;
-const Cliente = require("../models").Cliente;
+// const Cliente = require("../models").Cliente;
 const {registerValidation, loginValidation} = require("./Auth.validation");
 const bcript = require("bcrypt");
 
@@ -57,7 +57,7 @@ router.put('new-password', async (req:Request, res:Response)=>{
         res.status(401).send('Algo salió mal.');
     }
 
-    jwtPayload = jwt.verify(resetToken, process.env.TOKEN_SECRET);
+    // jwtPayload = jwt.verify(resetToken, process.env.TOKEN_SECRET);
 
     const {error} = loginValidation(req.body);
     if(error) return res.status(400).send(error.details[0].message);
@@ -90,7 +90,7 @@ router.put('forgot-password', async (req:Request, res:Response)=>{
         const token = jwt.sign({idPersona: usuarioDB.idPersona, username: usuarioDB.username},
             process.env.TOKEN_SECRET,
             {
-                expiresIn: '40m'
+                expiresIn: '40m',
             });
         verificationLink = `http://localhost:3000/api/auth/new-password/${token}`;
         usuarioDB.resetToken = token;
