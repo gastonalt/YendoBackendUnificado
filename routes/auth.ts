@@ -20,7 +20,7 @@ router.post('/register', async (req: Request, res: Response)=>{
         }
     })
 
-    if(await PersonaExiste !== null) return res.status(400).send("El mail y/o nombre de usuario ya existe.");
+    if(await PersonaExiste !== null) return res.status(400).send({mensaje: "El mail y/o nombre de usuario ya existe."});
 
     // Hash la contraseña
     const salt = await bcript.genSalt(10);
@@ -29,6 +29,8 @@ router.post('/register', async (req: Request, res: Response)=>{
     Persona.create({
         username: req.body.username,
         nombres: req.body.nombres,
+        tipoDni: req.body.tipoDni,
+        nroDni: req.body.nroDni,
         apellidos: req.body.apellidos,
         email: req.body.email,
         password: hashPassword,
@@ -39,7 +41,7 @@ router.post('/register', async (req: Request, res: Response)=>{
     )
     //
 
-    res.send('Exito');
+    res.status(200).send({mensaje: 'Exito'});
 
 });
 
@@ -104,7 +106,7 @@ router.put('forgot-password', async (req:Request, res:Response)=>{
     try{
 
     }catch (e) {
-        emailStatus = e;
+        emailStatus = '' + e;
         res.status(400).send('Algo no fue bien');
     }
 
@@ -112,7 +114,7 @@ router.put('forgot-password', async (req:Request, res:Response)=>{
     try{
        await Persona.save(usuarioDB);
     }catch (e) {
-        emailStatus = e;
+        emailStatus = '' + e;
         res.status(400).send('Algo salió mal.');
     }
 
@@ -140,7 +142,7 @@ router.post('/login', async (req: Request, res: Response)=>{
 
     // Crear y asignar un token
     const token = jwt.sign({id: PersonaExiste.id},process.env.TOKEN_SECRET);
-    res.header('auth-token', token).send(token);
+    res.header('auth-token', token).send({token});
 
 })
 

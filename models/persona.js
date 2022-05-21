@@ -27,6 +27,14 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
+        tipoDni: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        nroDni: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
         nombres: {
             type: DataTypes.STRING,
             allowNull: false
