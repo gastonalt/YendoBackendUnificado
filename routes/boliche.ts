@@ -4,10 +4,18 @@ const mysql = require("../mysql");
 const api = require('express').Router();
 const Boliche = require("../models").Boliche;
 const verify = require("./verifyToken");
+const jwt = require('jsonwebtoken');
+const Persona = require("../models").Persona;
 
-api.get('/boliches', verify, async (req: Request, res: Response)=>{
-    const boliches = Boliche.findAll();
-    res.json(await boliches);
+api.get('/boliches', verify, async (req: any, res: Response)=>{
+    //const boliches = Boliche.findAll();
+    //console.log(req.user)
+
+    //ASÍ HACEMOS QUE LEA USERS A PARTIR DE UN TOKEN =D
+    const persona = await Persona.findOne({where: {
+        idPersona: req.user.id
+    }})
+    res.send({persona})
     /* mysql.query('SELECT username,direccion,biografia FROM boliches', async (error: any, results: any, fields: any)=>{
         if (error) throw error;
         res.json(await results);
