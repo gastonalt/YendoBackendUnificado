@@ -31,6 +31,7 @@ router.post('/register', async (req: Request, res: Response)=>{
         nombres: req.body.nombres,
         tipoDni: req.body.tipoDni,
         nroDni: req.body.nroDni,
+        imgURL: 'http://localhost:3000/default-profile-picture.jpg',
         apellidos: req.body.apellidos,
         email: req.body.email,
         password: hashPassword,
