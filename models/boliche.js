@@ -21,13 +21,20 @@ module.exports = (sequelize, DataTypes) => {
             autoIncrement: true,
             primaryKey: true
         },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         nombre: {
             type: DataTypes.STRING,
             allowNull: false
         },
         descripcion: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING
         },
         direccion: {
             type: DataTypes.STRING,
@@ -38,10 +45,6 @@ module.exports = (sequelize, DataTypes) => {
         },
         coverPic: {
             type: DataTypes.STRING
-        },
-        passwordBoliche: {
-            type: DataTypes.STRING,
-            allowNull: false
         }
     }, {
         sequelize,

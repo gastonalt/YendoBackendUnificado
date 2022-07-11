@@ -13,7 +13,7 @@ const io = require('socket.io')(server,{
 const cors = require('cors');
 const jsonParser = bodyParser.json();
 const mysql = require("../mysql");
-const PORT = 5000;
+const PORT = 8000;
 
 // FIN DE CONFIG //
 

@@ -13,7 +13,28 @@ const registerValidation = (data) => {
     return schema.validate(data);
 }
 
+const registerBolicheValidation = (data) => {
+    const schema = Joi.object({
+        email: Joi.string().min(6).required().email(),
+        password: Joi.string().min(6).required(),
+        nombre: Joi.string().required(),
+        direccion: Joi.string().required(),
+        descripcion: Joi.string(),
+    });
+    return schema.validate(data);
+}
+
+
+
 const loginValidation = (data) => {
+    const schema = Joi.object({
+        email: Joi.string().min(6).required().email(),
+        password: Joi.string().min(6).required()
+    })
+    return schema.validate(data);
+}
+
+const loginBolicheValidation = (data) => {
     const schema = Joi.object({
         email: Joi.string().min(6).required().email(),
         password: Joi.string().min(6).required()
@@ -23,3 +44,5 @@ const loginValidation = (data) => {
 
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidation = loginValidation;
+module.exports.registerBolicheValidation = registerBolicheValidation;
+module.exports.loginBolicheValidation = loginBolicheValidation;
