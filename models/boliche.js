@@ -10,9 +10,7 @@ module.exports = (sequelize, DataTypes) => {
          * The `models/index` file will call this method automatically.
          */
         static associate(models) {
-            // define association here
             Boliche.hasMany(models.Evento);
-            Boliche.hasMany(models.Admin);
         }
     }
     Boliche.init({

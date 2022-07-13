@@ -8,8 +8,6 @@ module.exports = (sequelize, DataTypes) => {
          * The `models/index` file will call this method automatically.
          */
         static associate(models) {
-            // define association here
-            Evento.belongsToMany(models.Cliente, { through: 'Eventos_Clientes'});
             Evento.belongsTo(models.Boliche);
         }
     }

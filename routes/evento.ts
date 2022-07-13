@@ -3,6 +3,8 @@ const multer = require('multer');
 const api = require('express').Router();
 const verify = require("./verifyToken");
 const Evento = require("../models").Evento;
+const Boliche = require("../models").Boliche;
+import {Op} from "sequelize";
 
 // File upload settings  
 const PATH = './uploads/boliche-event-cover-pic';
@@ -29,14 +31,65 @@ api.post('/coverImage', verify, upload.single('image'), async(req: any, res:Resp
 
 ///
 
-api.post('/crearEvento', verify, async (req: Request, res: Response)=>{
+api.post('/crearEvento', verify, async (req: any, res: Response)=>{
     Evento.create({
-        FechaHora: req.body.fechaHora,
+        FechaHora: req.body.FechaHora,
         titulo: req.body.titulo,
         coverImg: req.body.coverImg ,
         descripcion: req.body.descripcion,
         cantidadTotal: req.body.cantidadTotal,
-        cantidadDisponible: req.body.cantidadTotal
+        cantidadDisponible: req.body.cantidadTotal,
+        BolicheIdBoliche: req.user.id,
+    },{
+        include: Boliche
+    })
+})
+
+api.put('/updateEvento', verify, async (req: any, res: Response)=>{
+    Evento.update({
+        FechaHora: req.body.FechaHora,
+        titulo: req.body.titulo,
+        coverImg: req.body.coverImg ,
+        descripcion: req.body.descripcion,
+        cantidadTotal: req.body.cantidadTotal
+        },{ where: { idEvento: req.body.idEvento } }
+        )
+});
+
+api.get('/getEventos', verify, async (req: any, res: Response)=>{
+    let eventos = Evento.findAll({where: { BolicheIdBoliche: req.user.id } })
+    .then((value:any)=>res.send(value))
+})
+
+
+api.get('/getEventosFrontEnd', verify, async (req: any, res: Response)=>{
+    let eventos = await Evento.findAll({ include: Boliche })
+    res.send(eventos);
+})
+
+api.get('/getEventosFrontEnd/:id', verify, async (req: any, res: Response)=>{
+    let eventos = await Evento.findAll({where: { BolicheIdBoliche: req.params.id } })
+    res.send(eventos);
+})
+
+api.get('/search/:criteria', verify, async (req: any, res: Response)=>{
+    let eventos = await Evento.findAll({
+        where: {
+            [Op.or]: [
+                {titulo: {[Op.like]: `%${req.params.criteria}%`}},
+                {descripcion: {[Op.like]: `%${req.params.criteria}%`}},
+            ]
+        },
+        include: Boliche}
+    )
+    res.send(eventos);
+})
+
+api.delete('/deleteEvento/:id', verify, async (req: any, res: Response)=>{
+    Evento.destroy({
+        where: {
+            IdEvento: req.params.id
+        }
     })
 })
 

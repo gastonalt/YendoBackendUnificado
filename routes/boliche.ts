@@ -71,6 +71,28 @@ api.post('/login', async (req: Request, res: Response)=>{
 
 });
 
+api.get('/getInfo', verify, async (req: any, res: Response)=>{
+    const boliche = await Boliche.findOne({where: {
+        idBoliche: req.user.id
+    }})
+    res.send(boliche)
+});
+
+api.put('/updateBoliche', verify, async (req: any, res: Response)=>{
+    let bolicheModificado = await Boliche.update({
+        nombre: req.body.nombre,
+        descripcion: req.body.descripcion,
+        direccion: req.body.direccion,
+        profilePic: req.body.profilePic,
+        coverPic: req.body.coverPic,
+        },{ where: { idBoliche: req.body.idBoliche } }
+        )
+    let bolicheModificadoCurrentState = await Boliche.findOne({where: {
+        idBoliche: req.body.idBoliche
+    }})
+    res.send(bolicheModificadoCurrentState); 
+});
+
 api.get('/boliches', verify, async (req: any, res: Response)=>{
     //const boliches = Boliche.findAll();
     //console.log(req.user)
@@ -91,5 +113,55 @@ api.get('/boliches_con_reservas', async (req: Request, res: Response)=>{
         // res.json(await results);
     });
 });
+
+// File upload settings para el COVERPIC
+const PATHCOVER = './uploads/boliche-cover-pic';
+let storageCover = multer.diskStorage({
+    destination: (req: any, file: any, cb: any) => {
+    cb(null, PATHCOVER);
+    },
+    filename: (req: any, file: any, cb: any) => {
+    cb(null, file.fieldname + '-' + Date.now() + '.' + file.mimetype.split("/")[1])
+    }
+});
+let uploadCover = multer({
+    storage: storageCover
+});
+
+api.post('/coverImage', verify, uploadCover.single('image'), async(req: any, res:Response)=>{
+    if (!req.file) {
+    console.log("No file is available!");
+    return res.send('http://localhost:3000/default-cover-picture.jpg');
+    } else {
+            res.send('http://localhost:3000/' + req.file.path.toString())
+    }
+})
+
+///
+
+// File upload settings  
+const PATH = './uploads/boliche-profile-pic';
+let storage = multer.diskStorage({
+    destination: (req: any, file: any, cb: any) => {
+    cb(null, PATH);
+    },
+    filename: (req: any, file: any, cb: any) => {
+    cb(null, file.fieldname + '-' + Date.now() + '.' + file.mimetype.split("/")[1])
+    }
+});
+let upload = multer({
+    storage: storage
+});
+
+api.post('/profilePicImage', verify, upload.single('image'), async(req: any, res:Response)=>{
+    if (!req.file) {
+    console.log("No file is available!");
+    return res.send('http://localhost:3000/default-cover-picture.jpg');
+    } else {
+            res.send('http://localhost:3000/' + req.file.path.toString())
+    }
+})
+
+///
 
 module.exports = api;

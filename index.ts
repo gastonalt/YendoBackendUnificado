@@ -24,10 +24,9 @@ app.use('/api/evento', evento);
 app.use('/api/reserva', reserva);
 app.use('/api/auth', auth);
 app.use(express.static(__dirname + '/assets'));
-app.use('/uploads/user-profile-pic', express.static( __dirname + '/uploads/user-profile-pic'));
-app.use('/uploads/boliche-event-cover-pic', express.static( __dirname + '/uploads/boliche-event-cover-pic'));
+app.use('/uploads', express.static( __dirname + '/uploads'));
 
-sequelize.sync({force: false})
+sequelize.sync({force: false,alter: true})
 
 app.get('/',(req: Request, res: Response)=>{
     res.json('Backend funcionando');
